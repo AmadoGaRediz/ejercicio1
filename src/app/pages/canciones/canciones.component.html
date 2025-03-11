@@ -1,0 +1,64 @@
+<div style="
+    margin: 5px; 
+    background-image: url('https://images5.alphacoders.com/946/thumb-1920-946639.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    padding: 20px;
+    color: rgb(124, 116, 165);
+    min-height: 100vh;
+">
+
+    <h1>Catálogo de Canciones de Skrillex</h1>
+
+    <div class="col-sm-4">
+
+        <h4 style="color: black;">Alta de Canciones</h4>
+
+        <p>
+            <label>Nombre:</label>
+            <input type="text" class="form-control" [(ngModel)]="cancion.nombre" />
+        </p>
+
+        <p>
+            <label>Duración:</label>
+            <input type="text" class="form-control" [(ngModel)]="cancion.duracion" />
+        </p>
+
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="this.insertarCancion()">Insertar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="this.updateCancion()">Modificar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="this.deleteCancion()">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h4>Listado de Canciones</h4>
+
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>Duración</th>
+            <th>Seleccionar</th>
+        </thead>
+        <tbody>
+            @for(cancion of canciones; track cancion.id){
+                <tr>
+                    <td>{{ cancion.nombre }}</td>
+                    <td>{{ cancion.duracion }}</td>
+                    <td>
+                        <button class="btn btn-success" (click)="selectCancion(cancion)">Seleccionar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
